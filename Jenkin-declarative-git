@@ -1,9 +1,18 @@
 pipeline {
+    
+    environment{
+        PATH = "/opt/maven/apache-maven-3.6.3/bin:$PATH"
+    }
     agent any
     stages{
         stage("GIT checkout"){
             steps{
                 git credentialsId: 'github', url: 'https://github.com/sureshaho/new-repo-feb-first.git'
+            }
+        }
+        stage("Maven build"){
+            steps{
+                sh "mvn clean package"
             }
         }
     }
