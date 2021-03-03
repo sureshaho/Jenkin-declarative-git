@@ -1,0 +1,10 @@
+pipeline {
+    agent any
+    stages{
+        stage("GIT checkout"){
+            steps{
+                git credentialsId: 'github', url: 'https://github.com/sureshaho/new-repo-feb-first.git'
+            }
+        }
+    }
+}
